@@ -1,0 +1,15 @@
+<h1>Slack Emoji</h1> 
+
+<div>Id: <%= @emoji["id"] %> </div>
+<div>People: <%= @emoji["people"]%> </div>
+<div>Nature: <%= @emoji["nature"] %> </div>
+<div>Food and Drink: <%= @emoji["food_and_drink"] %></div>
+<div>Celebration: <%= @emoji["celebration"]%> </div>
+<div>Activity: <%= @emoji["activity"]%> </div>
+<div>Travel and Places: <%= @emoji["travel_and_places"] %> </div>
+<div>Objects and Symbols: <%= @emoji["objects_and_symbols"]%> </div>
+<div>Custom: <%= @emoji["custom"]%> </div>
+<div>Emoji: <%= @emoji["emoji"]%> </div>
+
+
+<%= link_to "Delete Emoji", "/emojis/#{@emoji['id']}", method: :delete %>

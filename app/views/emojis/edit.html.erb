@@ -1,0 +1,37 @@
+<h1>Update Emoji</h1>
+
+<%= form_tag "/emojis/#{@emoji['id']}", method: :patch do  %>
+  <%= label_tag :id %>
+  <%= text_field_tag :id, @emoji['id'] %><br>
+
+  <%= label_tag :people %>
+  <%= text_field_tag :people, @emoji['people'] %><br>
+
+  <%= label_tag :nature %>
+  <%= text_field_tag :nature, @emoji['nature'] %><br>
+
+  <%= label_tag :food_and_drink %>
+  <%= text_field_tag :food_and_drink, @emoji['food_and_drink'] %><br>
+
+  <%= label_tag :celebration %>
+  <%= text_field_tag :celebration, @emoji['celebration'] %><br>
+
+  <%= label_tag :activity %>
+  <%= text_field_tag :activity, @emoji['activity'] %><br>
+
+  <%= label_tag :travel_and_places %>
+  <%= text_field_tag :travel_and_places, @emoji['travel_and_places'] %><br>
+
+  <%= label_tag :objects_and_symbols %>
+  <%= text_field_tag :objects_and_symbols, @emoji['objects_and_symbols'] %><br>
+
+  <%= label_tag :custom %>
+  <%= text_field_tag :custom, @emoji['custom'] %><br>
+
+  <%= label_tag :emoji %>
+  <%= text_field_tag :emoji, @emoji['emoji'] %><br>
+
+  <%= submit_tag "Update Emoji" %>
+
+<% end %>
+
