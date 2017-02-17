@@ -1,11 +1,12 @@
 class EmojisController < ApplicationController
 
   def show
-    @emoji = Unirest.get("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
+    emoji_hash = Unirest.get("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
+    @emoji = Emoji.new(emoji_hash)
   end
 
   def index
-    @emojis = Unirest.get("#{ENV['DOMAIN']}/emojis.json").body
+    @emojis = Emoji.all   
   end
 
   def new

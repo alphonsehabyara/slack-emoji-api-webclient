@@ -13,16 +13,16 @@
   </tr>
   <% @emojis.each do |emoji_hash|%>
     <tr>
-        <td><%= emoji_hash["id"]%></td> 
-        <td><%= emoji_hash["people"]%></td> 
-        <td><%= emoji_hash["nature"]%></td> 
-        <td><%= emoji_hash["food_and_drink"]%></td> 
-        <td><%= emoji_hash["celebration"]%></td> 
-        <td><%= emoji_hash["activity"]%></td> 
-        <td><%= emoji_hash["travel_and_places"]%></td> 
-        <td><%= emoji_hash["objects_and_symbols"]%></td> 
-        <td><%= emoji_hash["custom"]%></td> 
-        <td><%= emoji_hash["emoji"]%></td> 
+        <td><%= emoji_hash.id %></td> 
+        <td><%= emoji_hash.people %></td> 
+        <td><%= emoji_hash.nature %></td> 
+        <td><%= emoji_hash.food_and_drink %></td> 
+        <td><%= emoji_hash.celebration %></td> 
+        <td><%= emoji_hash.activity %></td> 
+        <td><%= emoji_hash.travel_and_places %></td> 
+        <td><%= emoji_hash.objects_and_symbols %></td> 
+        <td><%= emoji_hash.custom %></td> 
+        <td><%= emoji_hash.emoji %></td> 
     </tr>
   <% end %>
 </table>
