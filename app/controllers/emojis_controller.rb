@@ -1,8 +1,9 @@
 class EmojisController < ApplicationController
 
   def show
-    emoji_hash = Unirest.get("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
-    @emoji = Emoji.new(emoji_hash)
+    @emojis = SlackEmoji.find(params[:id])
+    # emoji_hash = Unirest.get("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
+    # @emoji = Emoji.new(emoji_hash)
   end
 
   def index
@@ -52,8 +53,11 @@ class EmojisController < ApplicationController
   end
 
   def destroy
-    Unirest.delete("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
+    SlackEmoji.delete(params[:id])
     redirect_to "/emojis"
+
+    # Unirest.delete("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
+    # redirect_to "/emojis"
   end
 
 end

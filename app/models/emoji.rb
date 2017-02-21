@@ -29,4 +29,36 @@ class Emoji
     return emojis # this is an array of ruby instances (emojis)
   end
 
+  def self.delete(id)
+    Unirest.delete("#{ENV['DOMAIN']}/emojis/#{id}.json").body
+  end
+
+  def self.update(id, people, nature, food_and_drink, celebration, activity, travel_and_places, objects_and_symbols, custom, emoji)
+    Unirest.patch("#{ENV['DOMAIN']}/emojis/#{id}.json", :headers => {"Accept"=> "application/json"}, 
+      :parameters => {
+        :people => people, 
+        :nature => nature, 
+        :food_and_drink=> food_and_drink, 
+        :celebration => celebration, 
+        :activity => activity, 
+        :travel_and_places, 
+        :objects_and_symbols => objects_and_symbols, 
+        :custom => custom, 
+        :emoji=> emoji}).body
+  end
+
+  def self.create(people, nature, food_and_drink, celebration, activity, travel_and_places, objects_and_symbols, custom, emoji)
+   Unirest.patch("#{ENV['DOMAIN']}/emojis/#{id}.json", :headers => {"Accept"=> "application/json"}, 
+      :parameters => {
+        :people => people, 
+        :nature => nature, 
+        :food_and_drink=> food_and_drink, 
+        :celebration => celebration, 
+        :activity => activity, 
+        :travel_and_places, 
+        :objects_and_symbols => objects_and_symbols, 
+        :custom => custom, 
+        :emoji=> emoji}).body
+  end
+
 end 
