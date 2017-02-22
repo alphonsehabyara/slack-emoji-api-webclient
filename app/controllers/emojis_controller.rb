@@ -1,13 +1,11 @@
 class EmojisController < ApplicationController
 
   def show
-    @emojis = SlackEmoji.find(params[:id])
-    # emoji_hash = Unirest.get("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
-    # @emoji = Emoji.new(emoji_hash)
+    @emoji = SlackEmoji.find(params[:id])
   end
 
   def index
-    @emojis = Emoji.all   
+    @emojis = SlackEmoji.all  
   end
 
   def new
@@ -15,7 +13,7 @@ class EmojisController < ApplicationController
   end
 
   def create
-    @emoji = Unirest.post("#{ENV['DOMAIN']}/emojis.json", 
+    @emoji = SlackEmoji.post("#{ENV['DOMAIN']}/emojis.json", 
       :headers => {"Accept"=> "application/json"}, 
       :parameters => {:id => params[:id], 
       :people => params[:people], 
@@ -32,11 +30,11 @@ class EmojisController < ApplicationController
   end
 
   def edit
-    @emoji = Unirest.get("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
+    @emoji = SlackEmoji.get("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
   end
 
   def update
-      @emoji = Unirest.patch("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json", 
+      @emoji = SlackEmoji.patch("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json", 
       :headers => {"Accept"=> "application/json"}, 
       :parameters => {:id => params[:id], 
       :people => params[:people], 
@@ -55,9 +53,6 @@ class EmojisController < ApplicationController
   def destroy
     SlackEmoji.delete(params[:id])
     redirect_to "/emojis"
-
-    # Unirest.delete("#{ENV['DOMAIN']}/emojis/#{params[:id]}.json").body
-    # redirect_to "/emojis"
   end
 
 end
